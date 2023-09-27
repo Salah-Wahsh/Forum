@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('threads', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('channel_id');
-            $table->string('title');
-            $table->text('body');
+        Schema::create('channels', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 50);
+            $table->string('slug', 50);
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('threads');
+        Schema::dropIfExists('channels');
     }
 };
