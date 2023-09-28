@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
+        <div class="row justify-content-left">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('view thread: ' . $thread->title) }}</div>
                     <div> <a href="#">{{ $thread->owner->name }} </a>
@@ -14,13 +14,27 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+
+                        <p>This Thread was published {{$thread->created_at->diffForHumans()}} by
+                            <a href="#">{{$thread->owner->name}} </a> and currently has {{$thread->replies_count}} {{Str::plural('reply', $thread->replies_count)}}.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="row justify-content-center">
-            @foreach ($thread->replies as $reply)
+
+        <div class="row justify-content-left">
+            <div class="col-md-8">
+            @foreach ($replies as $reply)
                 @include('threads.reply')
             @endforeach
+            </div>
+
         </div>
+        {{$replies->links()}}
 
         @if (auth()->check())
             <div class="row justify-content-center">

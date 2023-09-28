@@ -23,6 +23,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <style>
+        body{
+            padding-bottom: 50px;
+        }
+        a{
+            text-decoration: none;
+            color: #0a53be;
+        }
+        .level{
+            display: flex;
+            align-items: center;
+        }
+        .flex{
+            flex: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +57,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li><a class="nav-link" href="/threads">{{ __('All Threads') }}</a></li>
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Browse
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="nav-link" href="/threads">{{ __('All Threads') }}</a></li>
+                                @if (auth()->check())
+                                    <li><a class="nav-link"
+                                            href="/threads?by={{ auth()->user()->name }}">{{ __('My Threads') }}</a>
+                                    </li>
+                                @endif
+                                <li> <a class="nav-link" href="/threads/?popular=1">Popular All Time</a>  </li>
+                            </ul>
+                        </li>
                         <li><a class="nav-link" href="/threads/create">{{ __('New Thread') }}</a></li>
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
