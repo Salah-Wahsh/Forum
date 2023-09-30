@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
     protected $guarded = [];
+    protected $with=['owner', 'channel'];
     use HasFactory;
 
     protected static function boot()
@@ -16,6 +17,7 @@ class Thread extends Model
         static::addGlobalScope('replyCount', function ($builder){
             $builder->withCount('replies');
         });
+
     }
 
     public function path()
@@ -28,7 +30,7 @@ class Thread extends Model
     public function replies()
     {
 
-        return $this->hasMany(Reply::class)->withCount('favorites')->with('owner');
+        return $this->hasMany(Reply::class);
     }
 
     public function owner()
