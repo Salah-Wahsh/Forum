@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
+    use RecordsActivity;
     protected $guarded = [];
     protected $with=['owner', 'channel'];
     use HasFactory;
@@ -17,6 +18,7 @@ class Thread extends Model
         static::addGlobalScope('replyCount', function ($builder){
             $builder->withCount('replies');
         });
+
 
     }
 

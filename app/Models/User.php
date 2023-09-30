@@ -33,6 +33,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    public function threads(){
+        return $this->hasMany(Thread::class)->latest();
+    }
+
+    public function activity(){
+     return $this->hasMany(Activity::class);
+    }
     /**
      * The attributes that should be cast.
      *

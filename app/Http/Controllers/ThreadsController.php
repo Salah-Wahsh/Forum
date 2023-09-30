@@ -17,6 +17,7 @@ class ThreadsController extends Controller
     {
         $this->middleware('auth')->except(['index', 'show']);
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -62,10 +63,10 @@ class ThreadsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($channelId, Thread $thread)
+    public function show($channel, Thread $thread)
     {
         return view('threads.show', [
-          'thread' => $thread,
+            'thread' => $thread,
             'replies' => $thread->replies()->paginate(10)
         ]);
 
@@ -90,9 +91,12 @@ class ThreadsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Thread $thread)
+    public function destroy($channel, Thread $thread)
     {
-        //
+        $this->authorize('update', $thread);
+        $thread->replies()->delete();
+        $thread->delete();
+        return redirect('/threads');
     }
 
     /**
