@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reply;
 use App\Models\Thread;
 
 class RepliesController extends Controller
@@ -23,6 +24,13 @@ class RepliesController extends Controller
             'body' => request('body'),
             'user_id' => auth()->id(),
         ]);
+        return back()->with('flash', 'You made a new reply!');
+    }
+
+    public function destroy(Reply $reply){
+
+        $this->authorize('update', $reply);
+        $reply->delete();
         return back();
     }
 }

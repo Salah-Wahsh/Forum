@@ -38,6 +38,9 @@
         .flex{
             flex: 1;
         }
+        .mr-1{
+            margin-right: 1em; 
+        }
     </style>
 </head>
 
@@ -48,6 +51,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <Flash message="{{session('flash')}}"></Flash>
+
     </div>
 </body>
 

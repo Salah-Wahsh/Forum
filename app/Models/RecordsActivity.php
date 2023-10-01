@@ -5,14 +5,24 @@ namespace App\Models;
 trait RecordsActivity
 {
 
-    protected static function bootRecordsActivity(){
+    protected static function bootRecordsActivity()
+    {
         if (auth()->guest()) return;
 
-        static::created(function ($thread){
-            $thread->recordActivity('created');
+        foreach (static::getActivitiesToRecord() as $event){
+        static::created(function ($model) use ($event) {
+            $model->recordActivity($event);
+        });
+        }
+
+        static::deleting(function($model)
+        {
+            $model->activity->each->delete();
         });
 
     }
+
+
     public function recordActivity($event)
     {
         $this->Activity()->create([
@@ -25,8 +35,9 @@ trait RecordsActivity
 //        ]);
     }
 
-    public function Activity(){
-    return $this->morphMany('App\Models\Activity', 'subject');
+    public function Activity()
+    {
+        return $this->morphMany('App\Models\Activity', 'subject');
     }
 
     protected function getActivityType($event)
@@ -34,4 +45,11 @@ trait RecordsActivity
         $type = strtolower((new \ReflectionClass($this))->getShortName()); // ex: App/foo/thread -> thread,
         return "{$event}_{$type}";
     }
+
+    private static function getActivitiesToRecord()
+    {
+        return ['created'];
+    }
+
+
 }

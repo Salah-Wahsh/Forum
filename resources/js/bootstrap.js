@@ -5,8 +5,9 @@ import 'bootstrap';
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
+import { createApp, ref, provide, inject } from 'vue';
 import axios from 'axios';
+import {VueElement} from "vue";
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -31,3 +32,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+
+const app = createApp({});
+
+// Create a reactive property to hold the flash message
+const flashMessage = ref('');
+
+// Provide the flash message and emit function globally
+provide('flash', flashMessage);
+provide('emitFlash', (message) => {
+    flashMessage.value = message;
+});
+
+
