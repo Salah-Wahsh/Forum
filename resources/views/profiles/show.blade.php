@@ -12,14 +12,16 @@
                     <hr>
 
                 </div>
-                @foreach($activities as $date => $activity)
+                @forelse($activities as $date => $activity)
                     <h4 class="page-header">{{$date}}</h4>
                     @foreach($activity as $record)
                         @if(view()->exists("profiles.activities.{$record->type}"))
                     @include("profiles.activities.{$record->type}", ['activity'=> $record])
                         @endif
                     @endforeach
-                @endforeach
+                @empty
+                    <h3>No available activities</h3>
+                @endforelse
 {{--                {{$threads->links()}}--}}
             </div>
         </div>

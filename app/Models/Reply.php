@@ -10,6 +10,7 @@ class Reply extends Model
     use Favorable, RecordsActivity;
     protected $guarded = [];
     protected $with=['owner', 'favorites'];
+    protected $appends=['favCount', 'isFavorited'];
     use HasFactory;
 
     public function owner()

@@ -23,6 +23,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <style>
         body{
             padding-bottom: 50px;
@@ -39,7 +43,10 @@
             flex: 1;
         }
         .mr-1{
-            margin-right: 1em; 
+            margin-right: 1em;
+        }
+        [v-cloak]{
+            display: none;
         }
     </style>
 </head>

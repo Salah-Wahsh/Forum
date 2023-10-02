@@ -35,6 +35,8 @@ Route::get('threads/{channel}', [ThreadsController::class, 'index']);
 // Route::resource('threads', ThreadsController::class)->except(['update', 'destroy', 'edit']);
 Route::post('/threads/{channel}/{thread}/replies', [RepliesController::class, 'store']);
 Route::post('/replies/{reply}/favorites', [FavoritesController::class, 'store']);
+Route::delete('/replies/{reply}/favorites', [FavoritesController::class, 'destroy']);
 Route::delete('/replies/{reply}', [RepliesController::class, 'destroy']);
+Route::patch('/replies/{reply}', [RepliesController::class, 'update']);
 
 Route::get('profile/{user}', [ProfilesController::class, 'show'])->name('profile');

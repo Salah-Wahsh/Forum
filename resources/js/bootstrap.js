@@ -44,5 +44,3 @@ provide('flash', flashMessage);
 provide('emitFlash', (message) => {
     flashMessage.value = message;
 });
-
-

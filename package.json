@@ -9,15 +9,19 @@
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^4.0.0",
-        "axios": "^1.1.2",
+        "axios": "^0.15.3",
         "bootstrap": "^5.2.3",
-        "laravel-vite-plugin": "^0.8.0",
+        "cross-env": "^3.2.3",
+        "jquery": "^3.1.1",
+        "lodash": "^4.17.4",
         "sass": "^1.56.1",
         "vite": "^4.0.0",
         "vue": "^3.2.37"
     },
     "dependencies": {
         "i": "^0.3.7",
+        "laravel-vite-plugin": "^0.8.1",
+        "moment": "^2.29.4",
         "npm": "^10.1.0",
         "or": "^0.2.0"
     }

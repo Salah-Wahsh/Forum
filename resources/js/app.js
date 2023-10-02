@@ -25,7 +25,7 @@ app.component('Reply', Reply);
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/Flash.vue -> <example-component></example-component>
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
 // Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
