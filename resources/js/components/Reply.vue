@@ -26,9 +26,9 @@
                     </div>
                     <br>
 
-                    <div class="panel-footer level mr-1" v-if="isAuthenticated">
+                    <div class="panel-footer level mr-1" v-if="isReplyCreator">
                         <button class="btn btn-sm" @click="toggleEdit">{{ editing ? 'Save' : 'Edit' }}</button>
-                        <button class="btn btn-danger btn-sm" @click="deleteReply">Delete</button>
+                        <button class="btn btn-danger btn-sm" @click="deleteReply" >Delete</button>
                     </div>
                 </div>
             </div>
@@ -49,30 +49,39 @@
 </style>
 
 <script>
+
 import moment from 'moment';
 
 export default {
+
 
     name: 'Reply',
     props: {
         reply: Object,
         auth: Boolean,
-    },
-    data() {
-        console.log("THE REAL VALUE" + this.auth)
+        doer: Object
 
+    },
+
+
+    data() {
+        console.log("Current d Prop:", this.doer); // Add this line
         return {
             editing: false,
             editedReply: this.reply.body,
             deleted: false, // Add the 'deleted' flag
             favoritesCount: this.reply.favCount,
             isFavorited: this.reply.isFavorited,
-            isAuthenticated: this.auth
+            isAuthenticated: this.auth,
         };
+
     },
+
     methods: {
         async toggleEdit() {
             if (this.editing) {
+                console.log("THE REAL VALUE" + this.isReplyCreator + "ownerReply: " + this.reply.owner.id + "currentReg: " + this.doer)
+
                 try {
                     // Send an Axios request to update the reply
                     await axios.patch(`/replies/${this.reply.id}`, {body: this.editedReply});
@@ -88,8 +97,6 @@ export default {
             }
         },
         async deleteReply() {
-            // Implement the logic to delete the reply.
-            // You can use an API request to delete it on the server.
             axios.delete(`/replies/${this.reply.id}`);
             this.deleted = true;
 
@@ -121,12 +128,16 @@ export default {
     },
     computed: {
         formattedCreatedAt() {
-            // Format the created_at timestamp to a custom format (e.g., "October 1, 2023 4:30 PM")
             return moment(this.reply.created_at).fromNow();
+        },
+        isReplyCreator() {
+            // Check if the current user is the creator of the reply
+            return this.isAuthenticated && this.doer.id === this.reply.owner.id;
         },
         classes(){
           return ['btn', this.isFavorited? 'btn-danger': 'btn-default'];
         },
     },
 };
+
 </script>

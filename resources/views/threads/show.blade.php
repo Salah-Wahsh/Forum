@@ -12,17 +12,17 @@
                                 <span> posted:</span>
                                 {{ __($thread->title) }}
                             </span>
-                        <span>
+                            <span>
                             @can('update', $thread)
-                            <form action="{{$thread->path()}}" method="post">
+                                    <form action="{{$thread->path()}}" method="post">
                             @csrf
-                            {{method_field('DELETE')}}
-                            <button type="submit" class="btn btn-link" style="text-decoration: none;" >Delete Thread</button>
+                                        {{method_field('DELETE')}}
+                            <button type="submit" class="btn btn-link"
+                                    style="text-decoration: none;">Delete Thread</button>
                                 </form>
-                            @endcan
+                                @endcan
                         </span>
                         </div>
-
 
                     </div>
                     <div class="card-body">
@@ -43,6 +43,7 @@
         </div>
 
 
+        {{--        <replies :data="{{$thread->$replies}}"></replies>--}}
         <div class="row justify-content-left">
             <div class="col-md-8">
                 @foreach ($replies as $reply)

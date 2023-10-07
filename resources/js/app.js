@@ -17,8 +17,10 @@ const app = createApp({});
 
 import Flash from './components/Flash.vue';
 import Reply from './components/Reply.vue';
+import Thread from './components/pages/Thread.vue';
 app.component('Flash', Flash);
 app.component('Reply', Reply);
+app.component('thread-view', Thread);
 
 /**
  * The following block of code may be used to automatically register your

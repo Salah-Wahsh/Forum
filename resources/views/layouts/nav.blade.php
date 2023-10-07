@@ -25,6 +25,7 @@
                             </li>
                         @endif
                         <li> <a class="nav-link" href="/threads/?popular=1">Popular All Time</a>  </li>
+                        <li> <a class="nav-link" href="/threads/?unanswered=1">Unanswered Threads</a>  </li>
                     </ul>
                 </li>
                 <li><a class="nav-link" href="/threads/create">{{ __('New Thread') }}</a></li>

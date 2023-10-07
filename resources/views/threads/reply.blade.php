@@ -1,6 +1,11 @@
+
+
 <div>
-    <Reply :reply="{{ json_encode($reply) }}" :auth="{{ auth()->check() ? 'true' : 'false' }}" v-cloak></Reply>
+
+    <Reply :reply="{{ json_encode($reply) }}" :auth="{{ auth()->check() ? 'true' : 'false' }}" :doer="{{ json_encode(auth()->user())}}" v-cloak></Reply>
 </div>
+
+
 
 
 {{--<div class="card mt-4">--}}
