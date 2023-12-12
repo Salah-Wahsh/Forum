@@ -28,21 +28,15 @@
 - Delete any reply for moderation.
 
 ## Setup and Installation
-- Detailed instructions on how to set up the Laravel, Vue, and Blade components for the forum.
+- install laravel composer like every ordinary laravel project
 
 ## How to Run
-- Provide steps on running the project locally for development or testing.
+- run php artisan serve && npm run dev
 
 ## Technologies Used
 - Laravel
 - Vue
 - Blade
-
-## Contributing
-- Guidelines for contributing to the project.
-
-## Issues and Bug Reporting
-- Encourage users to report issues or bugs using the repository's issue tracker.
 
 ## License
 - This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
