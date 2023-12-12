@@ -1,66 +1,65 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Forum Project
 
-## About Laravel
+## Overview
+- The forum is built using Laravel, Vue, and Blade components.
+- Users can create an account, upload an avatar, and view their profile activity.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## User Features
+### Account Management
+- Create an account with a unique username and password.
+- Upload a custom avatar to personalize the profile.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Thread Management
+- Create threads to initiate discussions.
+- Comment on threads to contribute to discussions.
+- Like replies to express agreement or appreciation.
+- Subscribe to threads for notifications on updates.
+- View the number of replies on each thread.
+- Track threads opened by the user.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Reply Management
+- Delete own replies for content control.
 
-## Learning Laravel
+## Admin Features
+### Thread Administration
+- Lock threads to prevent further replies.
+- Delete any reply for moderation.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Setup and Installation
+- Detailed instructions on how to set up the Laravel, Vue, and Blade components for the forum.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## How to Run
+- Provide steps on running the project locally for development or testing.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Technologies Used
+- Laravel
+- Vue
+- Blade
 
 ## Contributing
+- Guidelines for contributing to the project.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Issues and Bug Reporting
+- Encourage users to report issues or bugs using the repository's issue tracker.
 
 ## License
+- This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## A few screenshots for the main parts of the Forum
+- Home Page:
+  
+![home](https://github.com/Salah-Wahsh/Forum/assets/63211856/46350113-fef8-4ba1-bc56-3aa2080ebeb6)
+
+- Admin's View of the thread:
+  
+![thread-owner-view](https://github.com/Salah-Wahsh/Forum/assets/63211856/770f50c2-73ff-4f70-89d3-03e57b6e6a79)
+
+- Ordinary user's view of the thread:
+  
+![thread-non-ownerview](https://github.com/Salah-Wahsh/Forum/assets/63211856/e37831fb-7c8f-41f8-ad27-79edceeb28d2)
+
+user's profile activity
+![profile-view](https://github.com/Salah-Wahsh/Forum/assets/63211856/dc4732d8-8b5a-4a92-b731-c6a76c3ba95f)
